@@ -19,6 +19,17 @@ public class GestionVehiculos {
         listavehiculos.add(unVehiculos);
     }
 
+    public static vehiculos buscarUnVehiculoPorVin(String vin) {
+        vehiculos unvehiculo = null;
+        for (int i = 0; i < listavehiculos.size(); i++) {
+            if (listavehiculos.get(i).getVin().equals(vin)) {
+                unvehiculo = listavehiculos.get(i);
+                break;
+            }
+        }
+        return unvehiculo;
+    }
+
     public static boolean existelistavehiculos(String Id2) {
         boolean existe = false;
         for (int i = 0; i < listavehiculos.size(); i++) {
