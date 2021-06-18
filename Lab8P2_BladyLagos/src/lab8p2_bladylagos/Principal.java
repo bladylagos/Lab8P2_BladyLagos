@@ -6,6 +6,8 @@
 package lab8p2_bladylagos;
 
 import Clases.vehiculos;
+import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -60,6 +62,24 @@ public class Principal extends javax.swing.JFrame {
         cb_1 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jp1 = new javax.swing.JPopupMenu();
+        editar = new javax.swing.JMenuItem();
+        delete = new javax.swing.JMenuItem();
+        modificacion = new javax.swing.JDialog();
+        jLabel14 = new javax.swing.JLabel();
+        m = new javax.swing.JRadioButton();
+        jLabel2 = new javax.swing.JLabel();
+        m1 = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
+        c = new javax.swing.JRadioButton();
+        jLabel23 = new javax.swing.JLabel();
+        c1 = new javax.swing.JComboBox<>();
+        jButton5 = new javax.swing.JButton();
+        n1 = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+        n = new javax.swing.JRadioButton();
+        jButton6 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         cb = new javax.swing.JComboBox<>();
@@ -255,6 +275,134 @@ public class Principal extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        editar.setText("Modificar");
+        editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarActionPerformed(evt);
+            }
+        });
+        jp1.add(editar);
+
+        delete.setText("Eliminar");
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
+            }
+        });
+        jp1.add(delete);
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel14.setText("Que Desea Modificar");
+
+        m.setText("marca");
+
+        jLabel2.setText("Marca:");
+
+        jButton4.setText("Modificar Marca");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+
+        c.setText("carroceria");
+
+        jLabel23.setText("Carroceria");
+
+        c1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "sedan", "familiar", "hatchback", "fastback", "SUV" }));
+
+        jButton5.setText("Modificar Carroceria");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jLabel27.setText("num puertas");
+
+        jButton7.setText("Modificar num puertas");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
+
+        n.setText("numpuertas");
+
+        javax.swing.GroupLayout modificacionLayout = new javax.swing.GroupLayout(modificacion.getContentPane());
+        modificacion.getContentPane().setLayout(modificacionLayout);
+        modificacionLayout.setHorizontalGroup(
+            modificacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modificacionLayout.createSequentialGroup()
+                .addGroup(modificacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(modificacionLayout.createSequentialGroup()
+                        .addGap(379, 379, 379)
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(modificacionLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addGroup(modificacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(modificacionLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(56, 56, 56)
+                                .addComponent(m1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(modificacionLayout.createSequentialGroup()
+                                .addComponent(jLabel23)
+                                .addGap(34, 34, 34)
+                                .addComponent(c1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(modificacionLayout.createSequentialGroup()
+                                .addComponent(jLabel27)
+                                .addGap(18, 18, 18)
+                                .addComponent(n1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(108, 108, 108)
+                        .addGroup(modificacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(modificacionLayout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(m)
+                        .addGap(26, 26, 26)
+                        .addComponent(c)
+                        .addGap(18, 18, 18)
+                        .addComponent(n)))
+                .addContainerGap(384, Short.MAX_VALUE))
+        );
+        modificacionLayout.setVerticalGroup(
+            modificacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modificacionLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jLabel14)
+                .addGap(50, 50, 50)
+                .addGroup(modificacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(m)
+                    .addComponent(c)
+                    .addComponent(n))
+                .addGap(32, 32, 32)
+                .addGroup(modificacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(m1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4))
+                .addGap(29, 29, 29)
+                .addGroup(modificacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(c1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5))
+                .addGap(21, 21, 21)
+                .addGroup(modificacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel27)
+                    .addGroup(modificacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(n1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton7)))
+                .addContainerGap(363, Short.MAX_VALUE))
+        );
+
+        jButton6.setText("Modificar Carroceria");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Crear Vehiculo");
@@ -400,17 +548,7 @@ public class Principal extends javax.swing.JFrame {
         String cantpasajeros2 = cantpasajeros1.getText();
 
         String ensamblaje2 = ensamblaje1.getText();
-        /*
-            private String vin;//Vehicle Identification Number
-    private String marca;//a la que pertenece
-    private String carroceria;//(sedán, familiar, hatchback, fastback o SUV)
-    private String numpuertas;
-    private String motor;//(a combustión o eléctrico)
-    private String precio;//euros
-    private String hibridacion;//(ninguna, microhíbrido, híbrido convencional, híbrido enchufable o eléctrico)
-    private String cantpasajeros;//cantidad máxima de pasajeros
-    private String ensamblaje;//(en segundos)
-         */
+
         DefaultComboBoxModel modelo = (DefaultComboBoxModel) cb.getModel();
         DefaultComboBoxModel modelo2 = (DefaultComboBoxModel) cb_1.getModel();
         vehiculos p = new vehiculos(vin2, marca2, carroceria2, numpuertas2, motor2, precio2, hibridacion2, cantpasajeros2, ensamblaje2);
@@ -420,7 +558,7 @@ public class Principal extends javax.swing.JFrame {
         precio1.setText("");
         cantpasajeros1.setText("");
         ensamblaje1.setText("");
-        
+
         JOptionPane.showMessageDialog(this, "Vehiculo agregado exitosamente");
         cb.setModel(modelo);
         cb_1.setModel(modelo2);
@@ -473,12 +611,132 @@ public class Principal extends javax.swing.JFrame {
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         // TODO add your handling code here:
-//        if (evt.isMetaDown()) {
-//            if (jTable1.getSelectedRow() >= 0) {
-//                jp1.show(jTable1, evt.getX(), evt.getY());
-//            }
-//        }
+        if (evt.isMetaDown()) {
+            if (jTable2.getSelectedRow() >= 0) {
+                jp1.show(jTable2, evt.getX(), evt.getY());
+            }
+        }
     }//GEN-LAST:event_jTable2MouseClicked
+
+    private void editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarActionPerformed
+        // TODO add your handling code here:
+
+        modificacion.setModal(true);
+        modificacion.pack();
+        modificacion.setLocationRelativeTo(this);
+        modificacion.setVisible(true);
+
+    }//GEN-LAST:event_editarActionPerformed
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
+
+        int index = jTable2.getSelectedRow();
+
+        vehiculos c = new vehiculos((String) modelo.getValueAt(index, 0),
+                (String) modelo.getValueAt(index, 1),
+                (String) modelo.getValueAt(index, 2),
+                (String) modelo.getValueAt(index, 3),
+                (String) modelo.getValueAt(index, 4),
+                (String) modelo.getValueAt(index, 5),
+                (String) modelo.getValueAt(index, 6),
+                (String) modelo.getValueAt(index, 7),
+                (String) modelo.getValueAt(index, 8));
+
+        ((David) cb.getSelectedItem()).getLista().remove(index);
+        modelo.removeRow(index);
+
+        Creadas.add(c);
+
+        jTable2.setModel(modelo);
+
+        JOptionPane.showMessageDialog(this, "Eliminado");
+        try {
+            ((David) cb.getSelectedItem()).escribirArchivo();
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_deleteActionPerformed
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel modelt = (DefaultTableModel) jTable2.getModel();
+        DefaultComboBoxModel modelc = (DefaultComboBoxModel) cb.getModel();
+        if (jTable2.getSelectedRow() >= 0) {
+            int indice = jTable2.getSelectedRow();
+            jTable2.setValueAt(m1.getText(), indice, 1);
+            jTable1.setModel(modelt);
+            ((David) cb.getSelectedItem()).getLista().get(indice).setMarca(m1.getText());
+
+            try {
+                ((David) cb.getSelectedItem()).escribirArchivo();
+            } catch (IOException ex) {
+
+            }
+            JOptionPane.showMessageDialog(this, "Cambiado");
+        }
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel modelt = (DefaultTableModel) jTable2.getModel();
+        DefaultComboBoxModel modelc = (DefaultComboBoxModel) cb.getModel();
+        if (jTable2.getSelectedRow() >= 0) {
+            int indice = jTable2.getSelectedRow();
+
+            String carroceria2 = "";
+
+            if (c1.getSelectedIndex() == 0) {
+                carroceria2 = "sedan";
+            }
+            if (c1.getSelectedIndex() == 1) {
+                carroceria2 = "familiar";
+            }
+            if (c1.getSelectedIndex() == 2) {
+                carroceria2 = "hatchback";
+            }
+            if (c1.getSelectedIndex() == 3) {
+                carroceria2 = "fastback";
+            }
+            if (c1.getSelectedIndex() == 4) {
+                carroceria2 = "SUV";
+            }
+
+            modelt.setValueAt(carroceria2, indice, 2);
+            jTable2.setModel(modelt);
+            ((David) cb.getSelectedItem()).getLista().get(indice).setCarroceria(carroceria2);
+
+            try {
+                ((David) cb.getSelectedItem()).escribirArchivo();
+            } catch (IOException ex) {
+
+            }
+            JOptionPane.showMessageDialog(this, "Cambiado");
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel modelt = (DefaultTableModel) jTable2.getModel();
+        DefaultComboBoxModel modelc = (DefaultComboBoxModel) cb.getModel();
+        if (jTable2.getSelectedRow() >= 0) {
+            int indice = jTable2.getSelectedRow();
+            jTable2.setValueAt(n1.getText(), indice, 3);
+            jTable1.setModel(modelt);
+            ((David) cb.getSelectedItem()).getLista().get(indice).setNumpuertas(n1.getText());
+
+            try {
+                ((David) cb.getSelectedItem()).escribirArchivo();
+            } catch (IOException ex) {
+
+            }
+            JOptionPane.showMessageDialog(this, "Cambiado");
+        }
+    }//GEN-LAST:event_jButton7MouseClicked
 
     /**
      * @param args the command line arguments
@@ -516,6 +774,8 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton c;
+    private javax.swing.JComboBox<String> c1;
     private javax.swing.JTextField cantpasajeros1;
     private javax.swing.JComboBox<String> cb;
     private javax.swing.JComboBox<String> cb_1;
@@ -524,30 +784,47 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbmotor1;
     private javax.swing.JTextField cnombre;
     private javax.swing.JDialog crearvehiculo;
+    private javax.swing.JMenuItem delete;
+    private javax.swing.JMenuItem editar;
     private javax.swing.JTextField ensamblaje1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JDialog jDialog2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JPopupMenu jp1;
+    private javax.swing.JRadioButton m;
+    private javax.swing.JTextField m1;
     private javax.swing.JTextField marca1;
+    private javax.swing.JDialog modificacion;
     private javax.swing.JTextField motor1;
+    private javax.swing.JRadioButton n;
+    private javax.swing.JTextField n1;
     private javax.swing.JTextField numpuertas1;
     private javax.swing.JTextField precio1;
     private javax.swing.JTextField vin1;
     // End of variables declaration//GEN-END:variables
+    ArrayList<vehiculos> Creadas = new ArrayList();
 }
