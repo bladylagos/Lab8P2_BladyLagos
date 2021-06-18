@@ -21,6 +21,7 @@ public class BuscarVehiculo extends javax.swing.JFrame {
      */
     public BuscarVehiculo() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**
@@ -295,7 +296,7 @@ public class BuscarVehiculo extends javax.swing.JFrame {
         // TODO add your handling code here:
         //
         PanelVehiculos.setEnabled(true);
-        
+
         vin2.setText("");
         marca2.setText("");
         carroceria2.setText("");
@@ -319,7 +320,7 @@ public class BuscarVehiculo extends javax.swing.JFrame {
                     hibri2.setText(unAlumno.getHibridacion());
                     cantpasajeros2.setText(unAlumno.getCantpasajeros());
                     ensamblaje2.setText(unAlumno.getEnsamblaje());
-                    
+
                 } else {
                     JOptionPane.showMessageDialog(null, "No existe vehiculos con ese Vin");
                 }

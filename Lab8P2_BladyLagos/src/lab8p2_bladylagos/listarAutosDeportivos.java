@@ -19,6 +19,7 @@ public class listarAutosDeportivos extends javax.swing.JFrame {
      */
     public listarAutosDeportivos() {
         initComponents();
+                setLocationRelativeTo(this);
         listarDeportivos();
     }
 

@@ -19,6 +19,7 @@ public class listarAutosPremium extends javax.swing.JFrame {
      */
     public listarAutosPremium() {
         initComponents();
+                setLocationRelativeTo(this);
         listarPremium();
     }
 
